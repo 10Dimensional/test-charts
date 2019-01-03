@@ -262,6 +262,7 @@ config:
       type: bool
       title: Use SAML Certificate
       default: "0"
+      hidden: true
       when: '{{repl ConfigOptionEquals "auth_saml_exists" "1"}}'
 
 lifecycle:

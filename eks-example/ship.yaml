@@ -243,6 +243,7 @@ config:
     - name: machine_type
       title: Machine Type
       default: "m5.large"
+      required: true
 
 lifecycle:
   v1:

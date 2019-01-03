@@ -243,30 +243,26 @@ config:
       title: Machine Type
       default: "m5.large"
       required: true
-    - name: Authentication
-      title: Authentication
-      description: Supported authentication methods. Choose at least one.
-      items:
-      - name: auth_saml_exists
-        title: I am using SAML for logins
-        help_text: When enabled we will use your already existing identity provider via SAML.
-        type: bool
-        default: "0"
-      - name: samlurl
-        title: SAML URL
-        type: text
-        when: '{{repl ConfigOptionEquals "auth_saml_exists" "1"}}'
-      - name: auth_saml_exists_hidden
-        title: auth_saml_exists_hidden
-        type: text
-        value: '{{repl if ConfigOptionEquals "auth_saml_exists" "0" }}{{repl else}}true{{repl end}}'
-        readonly: true
-        hidden: true
-      - name: saml_cert
-        type: bool
-        title: Use SAML Certificate
-        default: "0"
-        when: '{{repl ConfigOptionEquals "auth_saml_exists" "1"}}'
+    - name: auth_saml_exists
+      title: I am using SAML for logins
+      help_text: When enabled we will use your already existing identity provider via SAML.
+      type: bool
+      default: "0"
+    - name: samlurl
+      title: SAML URL
+      type: text
+      when: '{{repl ConfigOptionEquals "auth_saml_exists" "1"}}'
+    - name: auth_saml_exists_hidden
+      title: auth_saml_exists_hidden
+      type: text
+      value: '{{repl if ConfigOptionEquals "auth_saml_exists" "0" }}{{repl else}}true{{repl end}}'
+      readonly: true
+      hidden: true
+    - name: saml_cert
+      type: bool
+      title: Use SAML Certificate
+      default: "0"
+      when: '{{repl ConfigOptionEquals "auth_saml_exists" "1"}}'
 
 lifecycle:
   v1:

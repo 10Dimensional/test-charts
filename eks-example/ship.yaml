@@ -239,6 +239,7 @@ config:
     - name: cluster_size
       title: Cluster Size
       required: true
+      hidden: true
     - name: machine_type
       title: Machine Type
       default: "m5.large"
